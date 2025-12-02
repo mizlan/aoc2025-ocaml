@@ -1,4 +1,4 @@
-open Core
+open! Core
 
 let parse s =
   let parse_line line =
