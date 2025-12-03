@@ -1,2 +1,3 @@
 module Day1 = Day1
 module Day2 = Day2
+module Day3 = Day3
