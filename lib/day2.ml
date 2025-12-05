@@ -1,14 +1,14 @@
 open! Core
 
+let parse_range range_str =
+  match
+    String.split ~on:'-' range_str
+    |> List.map ~f:String.strip |> List.map ~f:Int.of_string
+  with
+  | [ a; b ] -> (a, b)
+  | _ -> failwith "range found with num components != 2"
+
 let parse s =
-  let parse_range range_str =
-    match
-      String.split ~on:'-' range_str
-      |> List.map ~f:String.strip |> List.map ~f:Int.of_string
-    with
-    | [ a; b ] -> (a, b)
-    | _ -> failwith "range found with num components != 2"
-  in
   let range_strings = String.split ~on:',' s in
   List.map ~f:parse_range range_strings
 
